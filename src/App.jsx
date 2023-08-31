@@ -1,9 +1,11 @@
 import './App.scss';
+import ColorVariation from './ColorVariation';
+
 
 const App = () => {
   return (
     <>
-      <h1>Hello ANZZA Project!!</h1>
+      <ColorVariation />
     </>
   );
 }

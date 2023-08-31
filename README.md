@@ -31,12 +31,12 @@ GitHub Actionsを使用してReactプロジェクトをAWS S3およびCloudFront
 2. リポジトリの名前:"anzzacolorvariation"、説明:"Users_can understand_any_color_variations_of_the_items."、その他の設定を適切に入力・選択します。
 3. `Create repository`をクリックしてリポジトリを作成します。
 
-リポジトリが作成されたら、ローカルのプロジェクトディレクトリで以下のコマンドを実行して、リモートリポジトリとの接続を行います：
+リポジトリが作成されたら、ローカルのプロジェクトディレクトリで以下のコマンドを実行して、リモートリポジトリとの接続を行います。
+pushはまだしないでください：
 
 ```bash
 git remote add origin [GitHubリポジトリのURL]
 git branch -M main
-git push -u origin main
 ```
 
 ## 5. **GitHub Secretsの設定**
@@ -54,6 +54,10 @@ GitHub ActionsがAWSサービスにアクセスできるようにするため、
 - GitHubのリポジトリページに移動し、`Settings` > `Secrets`にアクセスします。
 - `New repository secret`をクリックして、上記のそれぞれの名前と値を設定します。
 
+プッシュしてください。
+```bash
+git push -u origin main
+```
 
 ## 手順完了後の動作
 
