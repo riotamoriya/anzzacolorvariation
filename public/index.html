@@ -1,43 +1,64 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="ja">
   <head>
+    <!-- 文字コード設定 -->
     <meta charset="utf-8" />
-    <link rel="icon" href="%PUBLIC_URL%/favicon.ico" />
-    <meta name="viewport" content="width=device-width, initial-scale=1" />
-    <meta name="theme-color" content="#000000" />
-    <meta
-      name="description"
-      content="Web site created using create-react-app"
-    />
-    <link rel="apple-touch-icon" href="%PUBLIC_URL%/logo192.png" />
-    <!--
-      manifest.json provides metadata used when your web app is installed on a
-      user's mobile device or desktop. See https://developers.google.com/web/fundamentals/web-app-manifest/
-    -->
-    <link rel="manifest" href="%PUBLIC_URL%/manifest.json" />
-    <!--
-      Notice the use of %PUBLIC_URL% in the tags above.
-      It will be replaced with the URL of the `public` folder during the build.
-      Only files inside the `public` folder can be referenced from the HTML.
 
-      Unlike "/favicon.ico" or "favicon.ico", "%PUBLIC_URL%/favicon.ico" will
-      work correctly both with client-side routing and a non-root public URL.
-      Learn how to configure a non-root public URL by running `npm run build`.
-    -->
-    <title>React App</title>
+    <!-- ビューポートの設定
+    width=device-widthは、ビューポートの幅をデバイスの画面幅に設定します。
+    initial-scale=1は、ページがロードされたときの初期のズームレベルを設定します。 -->
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+
+    <!-- 著者 -->
+    <meta name="author" content="Rio(森谷亮太) riotamoriya@gmail.com" />
+
+    <!-- ファビコン設定 -->
+    <link rel=icon type=image/png href=%PUBLIC_URL%/icons/favicon-square.png>
+      <!-- android-icon -->
+      <link rel=icon type=image/png sizes=16x16 href=%PUBLIC_URL%/icons/android-icons/16x16.png>
+      <link rel=icon type=image/png sizes=32x32 href=%PUBLIC_URL%/icons/android-icons/32x32.png>
+      <link rel=icon type=image/png sizes=96x96 href=%PUBLIC_URL%/icons/android-icons/96x96.png>
+      <link rel=icon type=image/png sizes=192x192 href=%PUBLIC_URL%/icons/android-icons/192x192.png>
+
+      <!-- apple-touch-icon -->
+      <link rel=apple-touch-icon href=%PUBLIC_URL%/icons/favicon-square.png>
+      <link rel=apple-touch-icon sizes=57x57 href=%PUBLIC_URL%/icons/apple-icons/57x57.png>
+      <link rel=apple-touch-icon sizes=60x60 href=%PUBLIC_URL%/icons/apple-icons/60x60.png>
+      <link rel=apple-touch-icon sizes=72x72 href=%PUBLIC_URL%/icons/apple-icons/72x72.png>
+      <link rel=apple-touch-icon sizes=76x76 href=%PUBLIC_URL%/icons/apple-icons/76x76.png>
+      <link rel=apple-touch-icon sizes=114x114 href=%PUBLIC_URL%/icons/apple-icons/114x114.png>
+      <link rel=apple-touch-icon sizes=120x120 href=%PUBLIC_URL%/icons/apple-icons/120x120.png>
+      <link rel=apple-touch-icon sizes=144x144 href=%PUBLIC_URL%/icons/apple-icons/144x144.png>
+      <link rel=apple-touch-icon sizes=152x152 href=%PUBLIC_URL%/icons/apple-icons/152x152.png>
+      <link rel=apple-touch-icon sizes=180x180 href=%PUBLIC_URL%/icons/apple-icons/180x180.png>
+
+
+    <!-- マニフェスト -->
+    <link rel="manifest" href="%PUBLIC_URL%/manifest.json" />
+    <!-- MicrosoftのWindows OSでサイトをライブタイル -->
+    <meta name="msapplication-TileImage" content="%PUBLIC_URL%//icons/windows-icons/144x144.png">
+    <meta name="msapplication-TileColor" content="#ffffff">
+    <!-- テーマ色 -->
+    <meta name="theme-color" content="#000000" />
+
+
+
+    <!-- ページの説明 -->
+    <meta
+      name="Anzza_Color_Variation_System"
+      content="Users_can understand_any_color_variations_of_the_items."
+    />
+
+    <!-- Open Graphプロトコル -->
+    <meta property="og:title" content="Anzza_Color_Variation_System" />
+    <meta property="og:type" content="website" />
+    <meta property="og:url" content="https://d1jwbf78ekjl6o.cloudfront.net/anzzacolorvariation" />
+
+    <!-- タイトル -->
+    <title>anzzacolorvariation</title>
   </head>
   <body>
-    <noscript>You need to enable JavaScript to run this app.</noscript>
+    <noscript>JavaScript が有効になっていません。</noscript>
     <div id="root"></div>
-    <!--
-      This HTML file is a template.
-      If you open it directly in the browser, you will see an empty page.
-
-      You can add webfonts, meta tags, or analytics to this file.
-      The build step will place the bundled scripts into the <body> tag.
-
-      To begin the development, run `npm start` or `yarn start`.
-      To create a production bundle, use `npm run build` or `yarn build`.
-    -->
   </body>
 </html>

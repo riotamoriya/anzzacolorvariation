@@ -1,70 +1,88 @@
-# Getting Started with Create React App
+# ReactプロジェクトのCI/CD設定手順
 
-This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
+GitHub Actionsを使用してReactプロジェクトをAWS S3およびCloudFrontに自動デプロイするための手順を説明します。
 
-## Available Scripts
+## 1. **Amazon S3のセットアップ**
 
-In the project directory, you can run:
+- AWS管理コンソールにログインします。
+- S3のダッシュボードで「バケットを作成する」をクリックします。
+- バケットの名前として`anzzacolorvariation`を指定し、リージョンとして`us-east-1`を選択します。
+- 「静的ウェブホスティング」の設定は行わずに、バケットを作成します。
 
-### `npm start`
+## 2. **CloudFrontのセットアップ**
 
-Runs the app in the development mode.\
-Open [http://localhost:3000](http://localhost:3000) to view it in your browser.
+- AWS管理コンソールからCloudFrontを開き、適当なディストリビューションを選択します。
+- 「オリジンを作成」で先ほどの`anzzacolorvariation`バケットを選択します。
+- 適当な設定を行う。特にS3バケットポリシーは指示に従って変更する。
+- 「ビヘイビアを作成」で先ほどのオリジンを選択する。パスパターンは、`/anzzacolorvariation/*`とする。
+- 配信のIDをメモしておきます。
 
-The page will reload when you make changes.\
-You may also see any lint errors in the console.
+## 3. **IAMでの権限設定**
 
-### `npm test`
+- IAMダッシュボードで新しいユーザを作成し、プログラムによるアクセスを許可します。
+- 適切なS3およびCloudFrontの権限をユーザに付与します。
+- アクセスキーとシークレットキーを生成し、メモしておきます。
 
-Launches the test runner in the interactive watch mode.\
-See the section about [running tests](https://facebook.github.io/create-react-app/docs/running-tests) for more information.
+## 4. **GitHubのリモートリポジトリの作成**
 
-### `npm run build`
+前提として、GitHubにリモートリポジトリを作成しておく必要があります。以下の手順でリポジトリを作成します：
 
-Builds the app for production to the `build` folder.\
-It correctly bundles React in production mode and optimizes the build for the best performance.
+1. GitHubにログインし、トップページ右上の`+`アイコンをクリックして`New repository`を選択します。
+2. リポジトリの名前:"anzzacolorvariation"、説明:"Users_can understand_any_color_variations_of_the_items."、その他の設定を適切に入力・選択します。
+3. `Create repository`をクリックしてリポジトリを作成します。
 
-The build is minified and the filenames include the hashes.\
-Your app is ready to be deployed!
+リポジトリが作成されたら、ローカルのプロジェクトディレクトリで以下のコマンドを実行して、リモートリポジトリとの接続を行います：
 
-See the section about [deployment](https://facebook.github.io/create-react-app/docs/deployment) for more information.
+```bash
+git remote add origin [GitHubリポジトリのURL]
+git branch -M main
+git push -u origin main
+```
 
-### `npm run eject`
+## 5. **GitHub Secretsの設定**
 
-**Note: this is a one-way operation. Once you `eject`, you can't go back!**
+GitHub ActionsがAWSサービスにアクセスできるようにするため、以下の秘密キーを設定する必要があります。これらはGitHubのリポジトリの設定から追加します。
 
-If you aren't satisfied with the build tool and configuration choices, you can `eject` at any time. This command will remove the single build dependency from your project.
+1. **AWS_ACCESS_KEY_ID**: 先ほどIAMで作成したユーザーのアクセスキーID
+2. **AWS_SECRET_ACCESS_KEY**: 同じくIAMで作成したユーザーのシークレットアクセスキー
+3. **AWS_REGION**: 使用するAWSのリージョン。この手順では`us-east-1`を指定します。
+4. **S3_BUCKET**: デプロイするS3バケットの名前。この手順では`anzzacolorvariation`を指定します。
+5. **CLOUDFRONT_DISTRIBUTION_ID**: 先ほど作成したCloudFrontの配信ID
 
-Instead, it will copy all the configuration files and the transitive dependencies (webpack, Babel, ESLint, etc) right into your project so you have full control over them. All of the commands except `eject` will still work, but they will point to the copied scripts so you can tweak them. At this point you're on your own.
+以下の手順で設定を行います：
 
-You don't have to ever use `eject`. The curated feature set is suitable for small and middle deployments, and you shouldn't feel obligated to use this feature. However we understand that this tool wouldn't be useful if you couldn't customize it when you are ready for it.
+- GitHubのリポジトリページに移動し、`Settings` > `Secrets`にアクセスします。
+- `New repository secret`をクリックして、上記のそれぞれの名前と値を設定します。
 
-## Learn More
 
-You can learn more in the [Create React App documentation](https://facebook.github.io/create-react-app/docs/getting-started).
+## 手順完了後の動作
 
-To learn React, check out the [React documentation](https://reactjs.org/).
+上記の手順を完了した後、GitHubに`push`を行うと、自動的にReactアプリケーションがビルドされ、`anzzacolorvariation`バケットにデプロイされ、最後にCloudFrontのキャッシュがクリアされます。
 
-### Code Splitting
+> **メモ:** CloudFrontの配信IDは、CloudFrontダッシュボードで各配信の「ID」列に表示されます。このIDは、GitHub Actionsのワークフローファイル内で`${{ secrets.CLOUDFRONT_DISTRIBUTION_ID }}`として参照されます。
 
-This section has moved here: [https://facebook.github.io/create-react-app/docs/code-splitting](https://facebook.github.io/create-react-app/docs/code-splitting)
 
-### Analyzing the Bundle Size
 
-This section has moved here: [https://facebook.github.io/create-react-app/docs/analyzing-the-bundle-size](https://facebook.github.io/create-react-app/docs/analyzing-the-bundle-size)
+# プロジェクト構成
 
-### Making a Progressive Web App
+### `containers`
+- ステートフルなコンポーネントやビジネスロジックを持つコンポーネント
+- データ取得やステートの管理などのロジックを担当
 
-This section has moved here: [https://facebook.github.io/create-react-app/docs/making-a-progressive-web-app](https://facebook.github.io/create-react-app/docs/making-a-progressive-web-app)
+### `pages`
+- 特定のルートやURLにマッピングされるページレベルのコンポーネント
+- 例: `/about`, `/contact`
 
-### Advanced Configuration
+### `components`
+- 再利用可能なUIコンポーネント
+- 例: ボタン、ヘッダー、フッターなど
 
-This section has moved here: [https://facebook.github.io/create-react-app/docs/advanced-configuration](https://facebook.github.io/create-react-app/docs/advanced-configuration)
+### `mocks`
+- モックデータやテストのためのダミーデータを提供するファイルや関数
+- APIのレスポンスを模倣するデータなど
 
-### Deployment
+### `cores`
+- アプリケーションの核となるロジックや共通のユーティリティ関数
+- 設定ファイルや共通のヘルパー関数、APIの呼び出しをラップする関数など
 
-This section has moved here: [https://facebook.github.io/create-react-app/docs/deployment](https://facebook.github.io/create-react-app/docs/deployment)
 
-### `npm run build` fails to minify
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/troubleshooting#npm-run-build-fails-to-minify](https://facebook.github.io/create-react-app/docs/troubleshooting#npm-run-build-fails-to-minify)

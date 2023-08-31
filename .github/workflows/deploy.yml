@@ -1,0 +1,39 @@
+name: Build React on S3
+on:
+  push:
+      branches:
+        - main
+jobs:
+  build:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Checkout
+        uses: actions/checkout@master 
+
+      - name: Use Node.js 18.16.0
+        uses: actions/setup-node@v2
+        with:
+          node-version: '18.16.0'
+
+      - name: Install Dependencies
+        run: npm install
+
+      - name: Build
+        run: npm run build  
+
+      - name: Deploy 
+        env:
+          AWS_ACCESS_KEY_ID: ${{ secrets.AWS_ACCESS_KEY_ID }}
+          AWS_SECRET_ACCESS_KEY: ${{ secrets.AWS_SECRET_ACCESS_KEY }}
+        run: 
+          aws s3 sync --delete --region ${{ secrets.AWS_REGION }} ./build/ s3://${{ secrets.S3_BUCKET }}/${{ secrets.S3_BUCKET }}/
+
+      - name: Clear cache in CloudFront
+        env:
+          AWS_ACCESS_KEY_ID: ${{ secrets.AWS_ACCESS_KEY_ID }}
+          AWS_SECRET_ACCESS_KEY: ${{ secrets.AWS_SECRET_ACCESS_KEY }}
+          PATHS: "/${{ secrets.S3_BUCKET }}/*"
+          AWS_REGION: ${{ secrets.AWS_REGION }}
+          DISTRIBUTION: ${{ secrets.CLOUDFRONT_DISTRIBUTION_ID }}
+          
+        uses: chetan/invalidate-cloudfront-action@v1.2
