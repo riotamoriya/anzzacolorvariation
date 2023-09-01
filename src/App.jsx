@@ -1,5 +1,5 @@
 import './App.scss';
-import ColorVariation from './ColorVariation';
+import ColorVariation from './components/ColorVariation';
 
 
 const App = () => {
