@@ -12,8 +12,6 @@ import handle800 from './handle/handle-800.webp';
 import handle280 from './handle/handle-280.webp';
 import handle000 from './handle/handle-000.webp';
 
-
-
 const bodyColors = 
 [
   {"id": 0,"HEX":"#282828","NAME":"Black","MEMO":"Black"},
@@ -94,6 +92,17 @@ const ColorPicker = ({selectedPartsID, setSelectedBody, setSelectedHandle}) => {
     default:
       break;
   };
+
+  // 速度改善のためのプリリロードロジック
+  const preloadImages = (images) => {
+    images.forEach(image => {
+      const img = new Image();
+      img.src = image;
+    });
+  }
+  layers.forEach(layer => {
+    preloadImages(layer);
+  });
 
   return (
     <React.Fragment>
