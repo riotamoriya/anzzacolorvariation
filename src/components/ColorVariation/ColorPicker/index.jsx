@@ -58,8 +58,8 @@ const ColorPicker = ({selectedPartsID, setSelectedBody, setSelectedHandle}) => {
 
   const spanStyle = (color) => ({
     display: 'inline-block',
-    width: '5vh',
-    height: '5vh',
+    width: '6vw',
+    height: '6vw',
     backgroundColor: color,
     marginBottom: '2vh',
   });

@@ -5,7 +5,7 @@ const LayersFlame = ({ selectedBody, selectedHandle }) => {
       alignItems: 'center',
       margin: "auto",
       position: 'relative',
-      height: '100%',
+      height: '90%',
       boxSizing: 'border-box',
     };
     

@@ -1,9 +1,7 @@
 import React, { useState } from "react";
 
-
 import bodyIcon from "./icon/body.webp";
 import handleIcon from "./icon/handle.webp";
-
 
 const parts = 
 [
@@ -24,21 +22,25 @@ const PartSelections = ({ setSelectedPartsID }) => {
     textAlign: 'center',  
 };
 
-
   const imgStyle = {
-      width: '10vh',
-      height: '10vh'
+    width: '100%',
+    height: '100%',
+    objectFit: 'contain',
   };
 
   const buttonStyle = part => ({
-      marginRight: '2rem',
-      marginLeft: '2rem',
-      background: hoveredPart === part ? '#eee' : 'none', // カーソルが乗っているときは背景色をgrayに
-      border: 'none',
-      outline: 'none',
-      cursor: 'pointer',
-      fontSize: '1rem'
-      
+    width: '30%',      // 画像のサイズをここで設定
+    height: '30%',     // 画像のサイズをここで設定
+    marginRight: '20%',
+    background: hoveredPart === part ? '#eee' : 'none',
+    border: 'none',
+    outline: 'none',
+    cursor: 'pointer',
+    fontSize: '1rem',
+    display: 'flex',    // 画像とテキストを垂直に中央揃え
+    flexDirection: 'column',
+    alignItems: 'center',
+    justifyContent: 'center',
   });
 
   return (
