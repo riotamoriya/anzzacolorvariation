@@ -1,7 +1,6 @@
 import './App.scss';
 import ColorVariation from './components/ColorVariation';
 
-
 const App = () => {
   return (
     <>

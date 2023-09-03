@@ -1,4 +1,4 @@
-const LayersFlame = ({ selectedBody, selectedBelt, selectedSide }) => {
+const LayersFlame = ({ selectedBody, selectedHandle }) => {
 
     const imageContainerStyle = {
       display: 'flex',
@@ -13,7 +13,7 @@ const LayersFlame = ({ selectedBody, selectedBelt, selectedSide }) => {
       position: 'absolute',
       right: "0%",
       margin: 'auto',
-      maxHeight: "90%",
+      maxHeight: "100%",
       width: "auto",
       transform: "none",  // ← Ensure this is set to none
     };
@@ -21,8 +21,7 @@ const LayersFlame = ({ selectedBody, selectedBelt, selectedSide }) => {
   return (
     <div style={imageContainerStyle}>
       <img src={selectedBody} alt="Body" style={imageStyle} />
-      <img src={selectedBelt} alt="Belt" style={imageStyle} />
-      <img src={selectedSide} alt="Side" style={imageStyle} />
+      <img src={selectedHandle} alt="Handle" style={imageStyle} />
     </div>
   );
 };

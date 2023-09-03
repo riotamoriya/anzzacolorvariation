@@ -1,10 +1,55 @@
-import React from "react";
+import React from 'react';
 
-// import * as sc from "../core/colorsAndLayers.js";
+import bodyBlack from './body/body-Black.webp';
+import bodyLoden from './body/body-Loden.webp';
+import bodyBiancoCandido from './body/body-Bianco-Candido.webp';
+import bodyFlake from './body/body-Flake.webp';
+import bodyFreshy from './body/body-Freshy.webp';
+import bodyCioccolato from './body/body-Cioccolato.webp';
+import bodyLacca from './body/body-Lacca.webp';
+
+import handle800 from './handle/handle-800.webp';
+import handle280 from './handle/handle-280.webp';
+import handle000 from './handle/handle-000.webp';
 
 
-const ColorPicker = ({selectedPartsType, setSelectedBelt, setSelectedBody, setSelectedSide, 
-  hexs, layers}) => {
+
+const bodyColors = 
+[
+  {"id": 0,"HEX":"#282828","NAME":"Black","MEMO":"Black"},
+  {"id": 1,"HEX":"#2C302A","NAME":"Loden","MEMO":"Loden"},
+  {"id": 2,"HEX":"#34180F","NAME":"Cioccolato","MEMO":"Cioccolato"},
+  {"id": 3,"HEX":"#99632c","NAME":"Flake","MEMO":"Flake"},
+  {"id": 4,"HEX":"#ad393b","NAME":"Lacca","MEMO":"Lacca"},
+  {"id": 5,"HEX":"#1d62b5","NAME":"Freshy","MEMO":"Freshy"},
+  {"id": 6,"HEX":"#c5c7b8","NAME":"Bianco-Candido","MEMO":"Bianco-Candido"}
+];
+
+const handleColors = 
+[
+  {"id": 0,"HEX":"#c96226","NAME":"LightCamel","MEMO":"800"},
+  {"id": 1,"HEX":"#5b290e","NAME":"DarkCamel","MEMO":"280"},
+  {"id": 2,"HEX":"#2f2f2f","NAME":"Black","MEMO":"000"},
+];
+
+const layers = [
+  [
+    bodyBlack,
+    bodyLoden,
+    bodyBiancoCandido,
+    bodyFlake,
+    bodyLacca,
+    bodyFreshy,
+    bodyCioccolato,
+  ],
+  [
+    handle800,
+    handle280,
+    handle000,
+  ],
+];
+
+const ColorPicker = ({selectedPartsID, setSelectedBody, setSelectedHandle}) => {
 
   const buttonStyle = {
     background: 'none',
@@ -18,48 +63,51 @@ const ColorPicker = ({selectedPartsType, setSelectedBelt, setSelectedBody, setSe
     width: '5vh',
     height: '5vh',
     backgroundColor: color,
-    marginRight: '5px',
+    marginBottom: '2vh',
   });
 
-  const pushBottun = (hex) => {
+  const pushBottun = (colorId) => {
+    console.log(`${selectedPartsID} + ${colorId} + ${layers[selectedPartsID][colorId]}`);
 
-    switch (selectedPartsType) {
-      case 'body':
-        setSelectedBody(layers[selectedPartsType + hex]);
+    switch (selectedPartsID) {
+      case 0: // body
+        setSelectedBody(layers[selectedPartsID][colorId]);
         break;
-      case 'belt':
-        setSelectedBelt(layers[selectedPartsType+hex]);
+      
+      case 1: // handle
+        setSelectedHandle(layers[selectedPartsID][colorId]);
         break;
-      case 'side':
-        setSelectedSide(layers[selectedPartsType + hex]);
-        break;
+      
       default:
-    }
-  };
+        break;
+    };
+  }
 
-
-  // 画像を事前に読み込むことで、UX向上を期待
-  const ReadInitializeInvisibly = () => {
-    const allImages = Object.values(layers);
-    return (
-      <>
-        {allImages.map((img) => (
-          <img key={img} src={img} alt="Preload" style={{ display: "none" }} />
-        ))}
-      </>
-    )
+  let colorsToRender;
+  switch(selectedPartsID) {
+    case 0:
+      colorsToRender = bodyColors;
+      break;
+    case 1:
+      colorsToRender = handleColors;
+      break;
+    default:
+      break;
   };
 
   return (
     <React.Fragment>
-      <ReadInitializeInvisibly />
-      {hexs.map((color) => (
-        <div key={color}>
-          <button style={buttonStyle} onClick={() => pushBottun(color)}>
-            <span style={spanStyle('#'+color)}></span>
-          </button>
-        </div>
-      ))}
+      {
+        colorsToRender.map((color)=>{
+          return (
+            <div key={color.NAME}>
+              <button style={buttonStyle} onClick={() => pushBottun(color.id)}>
+                <span style={spanStyle(color.HEX)}></span>
+              </button>
+            </div>
+          )
+        })
+      }
     </React.Fragment>
   );
 };

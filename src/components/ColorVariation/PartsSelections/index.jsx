@@ -1,8 +1,17 @@
 import React, { useState } from "react";
 
-import { parts as pb_parts, icons as pb_icons} from "../core/partsSelectButton.js";
 
-const PartSelections = ({ setSelectedPartsType }) => {
+import bodyIcon from "./icon/body.webp";
+import handleIcon from "./icon/handle.webp";
+
+
+const parts = 
+[
+  {"id": 0, "Object":bodyIcon,"NAME":"Body","MEMO":""},
+  {"id": 1, "Object":handleIcon,"NAME":"Handle","MEMO":""},
+];
+
+const PartSelections = ({ setSelectedPartsID }) => {
   const [hoveredPart, setHoveredPart] = useState(null);
 
   const controllerStyle = {
@@ -17,8 +26,8 @@ const PartSelections = ({ setSelectedPartsType }) => {
 
 
   const imgStyle = {
-      width: '3rem',
-      height: '3rem'
+      width: '10vh',
+      height: '10vh'
   };
 
   const buttonStyle = part => ({
@@ -34,18 +43,21 @@ const PartSelections = ({ setSelectedPartsType }) => {
 
   return (
       <div style={controllerStyle}>
-          {pb_parts.map(part => (
+          {parts.map(part => {
+            return (
               <button
-                  style={buttonStyle(part)}
-                  key={part}
-                  onMouseEnter={() => setHoveredPart(part)} // カーソルがボタンに乗ったときのハンドラ
+                  style={buttonStyle(part.Object)}
+                  key={part.NAME}
+                  onMouseEnter={() => setHoveredPart(part.Object)} // カーソルがボタンに乗ったときのハンドラ
                   onMouseLeave={() => setHoveredPart(null)} // カーソルがボタンから離れたときのハンドラ
-                  onClick={() => setSelectedPartsType(part)}
+                  onClick={() => {setSelectedPartsID(part.id);}}
               >
-                  <img style={imgStyle} src={pb_icons[part]} alt={`Icon for ${part}`} />
-                  <span>{part}</span>
+                  <img style={imgStyle} src={part.Object} alt={`Icon for ${part.NAME}`} />
+                  <span>{part.NAME}</span>
               </button>
-          ))}
+            )
+          })}
+
       </div>
   );
 }

@@ -6,17 +6,17 @@ import Bar from "./Bar";
 import Price from "./Price";
 import PartSelections from "./PartsSelections";
 
-import * as sc from "./core/colorsAndLayers.js";
-import * as pb from "./core/partsSelectButton.js";
-
 import './style.scss';
 
 
+import bodyFlake from './ColorPicker/body/body-Flake.webp';
+import handle280 from './ColorPicker/handle/handle-280.webp';
+
 const ColorVariation = () => {
-    const [selectedPartsType, setSelectedPartsType] = useState(pb.parts[0]);
-    const [selectedBelt, setSelectedBelt] = useState(sc.initBeltLayer);
-    const [selectedBody, setSelectedBody] = useState(sc.initBodyLayer);
-    const [selectedSide, setSelectedSide] = useState(sc.initSideLayer);
+    const [selectedPartsID, setSelectedPartsID] = useState(0);
+    const [selectedBody, setSelectedBody] = useState(bodyFlake);
+    const [selectedHandle, setSelectedHandle] = useState(handle280);
+
 
     return (
         
@@ -26,27 +26,16 @@ const ColorVariation = () => {
             <div className="layerFlame-section">
                 <LayersFlame 
                     selectedBody={selectedBody}
-                    selectedBelt={selectedBelt}
-                    selectedSide={selectedSide}
+                    selectedHandle={selectedHandle}
                 />
             </div>
 
             <div className="color-picker-section">
-                <ColorPicker selectedPartsType={selectedPartsType} 
-                    setSelectedBelt={setSelectedBelt}
-                    setSelectedBody={setSelectedBody}
-                    setSelectedSide={setSelectedSide}
-                    hexs={sc.hexs} layers={sc.layers}
-                />
+                <ColorPicker selectedPartsID={selectedPartsID} setSelectedBody={setSelectedBody} setSelectedHandle={setSelectedHandle}/>
             </div>
 
             <div className="parts-section">
-                <PartSelections
-                    setSelectedBelt={setSelectedBelt}
-                    setSelectedBody={setSelectedBody}
-                    setSelectedSide={setSelectedSide}
-                    setSelectedPartsType={setSelectedPartsType}
-                />
+                <PartSelections setSelectedPartsID={setSelectedPartsID} />
             </div>
         </div>
     );
