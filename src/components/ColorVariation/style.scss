@@ -28,22 +28,22 @@
       background-color: #eee; // 色は適当に指定
   }
 
-  .price-section {
+  .angle-section {
       position: absolute;
-      top: 10%;
-      left: 5%;
+      top: 20%;
+      left: 0;
       width: 20%;
-      height: 10%;
-    //   background-color: blue; // 色は適当に指定
+      height: 60%;
+      background-color: blue; // 色は適当に指定
   }
 
   .layerFlame-section {
       position: absolute;
       top: 20%;
-      left: 0;
-      width: 80%;
+      left: 20%;
+      width: 60%;
       height: 60%;
-    //   background-color: yellow; // 色は適当に指定
+      background-color: yellow; // 色は適当に指定
   }
 
   .color-picker-section {
@@ -53,7 +53,7 @@
       width: 20%;
       height: 60%;
       z-index: 2;
-    //   background-color: green; // 色は適当に指定
+      background-color: green; // 色は適当に指定
   }
 
   .parts-section {
@@ -61,6 +61,6 @@
       bottom: 0;
       width: 100%;
       height: 20%;
-    //   background-color: purple; // 色は適当に指定
+      // background-color: purple; // 色は適当に指定
   }
 }
