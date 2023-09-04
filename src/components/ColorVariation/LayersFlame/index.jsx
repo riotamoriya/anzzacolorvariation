@@ -1,5 +1,10 @@
-const LayersFlame = ({ selectedBody, selectedHandle }) => {
+import React from "react";
 
+
+const LayersFlame = ({ selectedAngleID, selectedPartID, selectedColorID
+  ,selectedBody ,selectedHandle }) => {
+  
+  
   const imageContainerStyle = {
     display: 'flex',
     alignItems: 'center',
@@ -18,10 +23,31 @@ const LayersFlame = ({ selectedBody, selectedHandle }) => {
     width: "auto",
     transform: "none",
   };
+
+  const Fn = () => {
+    switch(selectedPartID) {
+      case 0:
+        break;
+      case 1:
+        break;
+      default:
+        break;
+    };
+
+  };
+
+  
   return (
     <div style={imageContainerStyle}>
+
+      {console.log(`selectedAngleID:${selectedAngleID}, selectedPartID:${selectedPartID}, selectedColorID:${selectedColorID}`)}
+      {/* {console.log(layers[selectedAngleID][selectedPartID][selectedColorID])} */}
+
       <img src={selectedBody} alt="Body" style={imageStyle} />
       <img src={selectedHandle} alt="Handle" style={imageStyle} />
+
+      {/* <img src={selectedBody} alt="Body" style={imageStyle} />
+      <img src={selectedHandle} alt="Handle" style={imageStyle} /> */}
     </div>
   );
 };

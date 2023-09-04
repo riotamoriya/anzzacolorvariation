@@ -1,16 +1,28 @@
 import React from 'react';
 
-import bodyBlack from './body/body-Black.webp';
-import bodyLoden from './body/body-Loden.webp';
-import bodyBiancoCandido from './body/body-Bianco-Candido.webp';
-import bodyFlake from './body/body-Flake.webp';
-import bodyFreshy from './body/body-Freshy.webp';
-import bodyCioccolato from './body/body-Cioccolato.webp';
-import bodyLacca from './body/body-Lacca.webp';
+import frontBodyBlack from './front/body/body-Black.webp';
+import frontBodyLoden from './front/body/body-Loden.webp';
+import frontBodyBiancoCandido from './front/body/body-BiancoCandido.webp';
+import frontBodyFlake from './front/body/body-Flake.webp';
+import frontBodyFreshy from './front/body/body-Freshy.webp';
+import frontBodyCioccolato from './front/body/body-Cioccolato.webp';
+import frontBodyLacca from './front/body/body-Lacca.webp';
+import frontHandle800 from './front/handle/handle-800.webp';
+import frontHandle280 from './front/handle/handle-280.webp';
+import frontHandle000 from './front/handle/handle-000.webp';
 
-import handle800 from './handle/handle-800.webp';
-import handle280 from './handle/handle-280.webp';
-import handle000 from './handle/handle-000.webp';
+import obliqueBodyBlack from './oblique/body/body-Black.webp';
+import obliqueBodyLoden from './oblique/body/body-Loden.webp';
+import obliqueBodyBiancoCandido from './oblique/body/body-BiancoCandido.webp';
+import obliqueBodyFlake from './oblique/body/body-Flake.webp';
+import obliqueBodyFreshy from './oblique/body/body-Freshy.webp';
+import obliqueBodyCioccolato from './oblique/body/body-Cioccolato.webp';
+import obliqueBodyLacca from './oblique/body/body-Lacca.webp';
+import obliqueHandle800 from './oblique/handle/handle-800.webp';
+import obliqueHandle280 from './oblique/handle/handle-280.webp';
+import obliqueHandle000 from './oblique/handle/handle-000.webp';
+
+
 
 const bodyColors = 
 [
@@ -30,24 +42,45 @@ const handleColors =
   {"id": 2,"HEX":"#2f2f2f","NAME":"Black","MEMO":"000"},
 ];
 
+
 const layers = [
   [
-    bodyBlack,
-    bodyLoden,
-    bodyBiancoCandido,
-    bodyFlake,
-    bodyLacca,
-    bodyFreshy,
-    bodyCioccolato,
+    [
+      frontBodyBlack,
+      frontBodyLoden,
+      frontBodyBiancoCandido,
+      frontBodyFlake,
+      frontBodyFreshy,
+      frontBodyCioccolato,
+      frontBodyLacca,
+    ],
+    [
+      frontHandle800,
+      frontHandle280,
+      frontHandle000,
+    ],
   ],
   [
-    handle800,
-    handle280,
-    handle000,
+    [
+      obliqueBodyBlack,
+      obliqueBodyLoden,
+      obliqueBodyBiancoCandido,
+      obliqueBodyFlake,
+      obliqueBodyFreshy,
+      obliqueBodyCioccolato,
+      obliqueBodyLacca,
+    ],
+    [
+      obliqueHandle800,
+      obliqueHandle280,
+      obliqueHandle000,
+    ],
   ],
 ];
 
-const ColorPicker = ({selectedPartsID, setSelectedBody, setSelectedHandle}) => {
+
+const ColorPicker = ({selectedAngleID, selectedPartID, setSelectedColorID
+  ,setSelectedBody, setSelectedHandle}) => {
 
   const buttonStyle = {
     background: 'none',
@@ -58,58 +91,50 @@ const ColorPicker = ({selectedPartsID, setSelectedBody, setSelectedHandle}) => {
 
   const spanStyle = (color) => ({
     display: 'inline-block',
-    width: '6vw',
-    height: '6vw',
+    width: '5vh',
+    height: '5vh',
     backgroundColor: color,
     marginBottom: '2vh',
   });
 
   const pushBottun = (colorId) => {
-    console.log(`${selectedPartsID} + ${colorId} + ${layers[selectedPartsID][colorId]}`);
+    setSelectedColorID(colorId);
 
-    switch (selectedPartsID) {
-      case 0: // body
-        setSelectedBody(layers[selectedPartsID][colorId]);
+    console.log(selectedPartID);
+    console.log(colorId);
+
+    switch(selectedPartID) {
+      case 0:
+        setSelectedBody(layers[selectedAngleID][selectedPartID][colorId]);
         break;
-      
-      case 1: // handle
-        setSelectedHandle(layers[selectedPartsID][colorId]);
+      case 1:
+        setSelectedHandle(layers[selectedAngleID][selectedPartID][colorId]);
         break;
-      
       default:
         break;
     };
-  }
+  };
 
-  let colorsToRender;
-  switch(selectedPartsID) {
+
+  let selectedPartColors;
+  switch(selectedPartID) {
     case 0:
-      colorsToRender = bodyColors;
+      selectedPartColors = bodyColors;
       break;
     case 1:
-      colorsToRender = handleColors;
+      selectedPartColors = handleColors;
       break;
     default:
       break;
   };
-
-  // 速度改善のためのプリリロードロジック
-  const preloadImages = (images) => {
-    images.forEach(image => {
-      const img = new Image();
-      img.src = image;
-    });
-  }
-  layers.forEach(layer => {
-    preloadImages(layer);
-  });
-
+  
   return (
     <React.Fragment>
       {
-        colorsToRender.map((color)=>{
+        selectedPartColors.map((color)=>{
           return (
             <div key={color.NAME}>
+              {/* <button style={buttonStyle} onClick={() => pushBottun(color.id)}> */}
               <button style={buttonStyle} onClick={() => pushBottun(color.id)}>
                 <span style={spanStyle(color.HEX)}></span>
               </button>
