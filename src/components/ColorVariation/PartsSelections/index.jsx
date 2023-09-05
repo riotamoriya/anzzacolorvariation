@@ -1,54 +1,32 @@
 import React, { useState } from "react";
+import './style.scss';
 
 import { parts } from "../cores/importLayers";
 
 const PartSelections = ({ setSelectedPartsID }) => {
   const [hoveredPart, setHoveredPart] = useState(null);
 
-  const controllerStyle = {
-    display: 'flex',      // フレックスコンテナとして設定
-    flexWrap: 'nowrap',   // 子要素を折り返さない
-    position: 'absolute', 
-    top: '50%',           
-    left: '50%',          
-    transform: 'translate(-50%, -50%)',
-    textAlign: 'center',  
-};
-
-  const imgStyle = {
-    width: '100%',
-    height: '100%',
-    objectFit: 'contain',
-  };
-
-  const buttonStyle = part => ({
-    width: '30%',      // 画像のサイズをここで設定
-    height: '30%',     // 画像のサイズをここで設定
-    marginRight: '20%',
+  const hoverStyle = part => ({
     background: hoveredPart === part ? '#eee' : 'none',
     border: 'none',
     outline: 'none',
     cursor: 'pointer',
-    fontSize: '1rem',
-    display: 'flex',    // 画像とテキストを垂直に中央揃え
-    flexDirection: 'column',
-    alignItems: 'center',
-    justifyContent: 'center',
-  });
+  })
 
   return (
-      <div style={controllerStyle}>
+      <div className="controllerStyle">
           {parts.map(part => {
             return (
               <button
-                  style={buttonStyle(part.Object)}
+                  className="buttonStyle"
+                  style={hoverStyle(part.Object)}
                   key={part.NAME}
                   onMouseEnter={() => setHoveredPart(part.Object)} // カーソルがボタンに乗ったときのハンドラ
                   onMouseLeave={() => setHoveredPart(null)} // カーソルがボタンから離れたときのハンドラ
                   onClick={() => {setSelectedPartsID(part.id);}}
               >
-                  <img style={imgStyle} src={part.Object} alt={`Icon for ${part.NAME}`} />
-                  <span>{part.NAME}</span>
+                <img src={part.Object} alt={`Icon for ${part.NAME}`} />
+                <span className="">{part.NAME}</span>
               </button>
             )
           })}

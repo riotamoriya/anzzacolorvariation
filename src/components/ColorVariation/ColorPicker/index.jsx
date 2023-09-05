@@ -1,34 +1,21 @@
-import React from "react";
-import { bodyColors, handleColors } from '../cores/importLayers';
+import React, { useState } from "react";
 
+import { bodyColors, handleColors } from '../cores/importLayers';
+import './style.scss';
 
 const ColorPicker = ({selectedAngleID, selectedPartID, setSelectedColorID
   ,setSelectedBodyDim3, setSelectedHandleDim3}) => {
 
-  const buttonStyle = {
-    background: 'none',
+  const [hoveredPart, setHoveredPart] = useState(null);
+
+  const hoverStyle = part => ({
+    background: hoveredPart === part ? '#eee' : 'none',
     border: 'none',
     outline: 'none',
     cursor: 'pointer',
-    display: 'flex',          // ボタンの内部をフレックスボックスにする
-    flexDirection: 'column', // 要素を縦に配置する
-    justifyContent: 'center', // 主軸方向（ここでは縦方向）で要素を中央に配置
-    alignItems: 'flex-start', // 交差軸方向（ここでは横方向）で要素を左寄せに設定
-    marginBottom: '0.3rem',
-
-  };
-    
-  const spanStyle = (color) => ({
-    display: 'inline-block',
-    width: '5vh',
-    height: '5vh',
-    backgroundColor: color,
   })
-
-  const nameStyle = {
-    alignSelf: 'flex-start', // ボタン内での自分自身の配置を左寄せに設定
-    fontSize: '0.3rem'
-  };
+  
+  const colorBox = color => ({ backgroundColor: color })
 
   const pushBottun = (colorId) => {
     setSelectedColorID(colorId);
@@ -61,20 +48,21 @@ const ColorPicker = ({selectedAngleID, selectedPartID, setSelectedColorID
   };
   
   return (
-    <React.Fragment>
+    <div className="colorPickerStyle">
       {
         selectedPartColors.map((color)=>{
           return (
-            <div key={color.NAME}>
-              <button style={buttonStyle} onClick={() => pushBottun(color.id)}>
-                <span style={spanStyle(color.HEX)}></span>
-                <span style={nameStyle}>{color.NAME}</span>
-              </button>
-            </div>
+            <button key={color.NAME} style={hoverStyle(color.id)} className='buttonStyle' 
+              onClick={() => pushBottun(color.id)}
+              onMouseEnter={() => setHoveredPart(color.id)}
+              onMouseLeave={() => setHoveredPart(null)} // カーソルがボタンから離れたときのハンドラ
+              >
+              <span className='colorBoxStyle' style={colorBox(color.HEX)}></span>
+            </button>
           )
         })
       }
-    </React.Fragment>
+    </div>
   );
 };
 

@@ -1,0 +1,63 @@
+$breakpoint-pc: 1024px;
+$breakpoint-tablet: 768px;
+$breakpoint-mobile: 480px;
+
+
+.colorPickerStyle {
+  // background-color: aqua;
+
+  height: 100%;
+  width: 50%;
+
+  .buttonStyle  {
+    width: 100%;
+    height: 10%;
+  
+    background: none;
+    border: none;
+    outline: none;
+    display: flex;          // ボタンの内部をフレックスボックスにする
+    flex-direction: column; // 要素を縦に配置する
+    justify-content: center; // 主軸方向（ここでは縦方向）で要素を中央に配置
+    align-items: flex-start; // 交差軸方向（ここでは横方向）で要素を左寄せに設定
+    margin-bottom: 0.3rem;
+  
+    // background-color: yellow;
+
+    .colorBoxStyle {
+      display: inline-block;
+      background-color: transparent; /* 既定の背景色を透明にして、React内でのインラインスタイルで色を上書きできるようにします */
+      vertical-align: middle; /* 他の要素との位置関係を中央に整える */
+      content: ""; /* 追加のコンテンツは不要 */
+
+      /* アスペクト比を1:1に保持するためのトリック */
+      width:50%; /* この％は好みに応じて変更できます */
+      padding-top: 50%; /* widthと同じ値にします */
+
+        // スマホのスタイル
+        @media (max-width: $breakpoint-mobile) {
+          width:100%; /* この％は好みに応じて変更できます */
+          padding-top: 100%; /* widthと同じ値にします */
+        }
+    }
+
+    .nameStyle {
+      align-self: flex-start; // ボタン内での自分自身の配置を左寄せに設定
+      color: black;
+      white-space: nowrap;
+
+      font-size: 0.7rem;
+        // スマホのスタイル
+      @media (max-width: $breakpoint-mobile) {
+        font-size: 0.6rem;
+      }
+    };
+
+  };
+
+
+  
+}
+
+
+

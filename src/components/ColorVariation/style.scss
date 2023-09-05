@@ -33,8 +33,8 @@
       top: 20%;
       left: 0;
       width: 20%;
-      height: 60%;
-      // background-color: blue; // 色は適当に指定
+      height: 80%;
+    //   background-color: blue; // 色は適当に指定
   }
 
   .layerFlame-section {
@@ -51,7 +51,7 @@
       top: 20%;
       right: 0;
       width: 20%;
-      height: 60%;
+      height: 80%;
       z-index: 2;
     //   background-color: green; // 色は適当に指定
   }
@@ -59,8 +59,13 @@
   .parts-section {
       position: absolute;
       bottom: 0;
-      width: 100%;
+      right: 20%;
+      width: 60%;
       height: 20%;
       // background-color: purple; // 色は適当に指定
+
+      display: flex;
+      justify-content: center;
+      align-items: center;
   }
 }
