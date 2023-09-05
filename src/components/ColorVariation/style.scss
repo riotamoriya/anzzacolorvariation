@@ -1,0 +1,66 @@
+.color-variation-container {
+  position: relative;
+  width: 100vw;
+  height: 100vw; // 正方形を想定しています。
+  max-height: 100vh;
+  margin: auto;
+  background-color: snow; // コンテナの背景色を指定して区別するため。
+
+    // 縦向き（または正方形）の場合
+    @media (orientation: portrait), (aspect-ratio: 1/1) {
+        width: 100vw;
+        height: 100vw;
+    }
+
+    // 横向きの場合
+    @media (orientation: landscape) {
+        width: 100vh;  // 画面の高さを基準に正方形を作成
+        height: 85vh;
+        margin-left: calc((100vw - 100vh) / 2); // 横方向の中央寄せ
+    }
+
+
+  .bar-section {
+      position: absolute;
+      top: 0;
+      width: 100%;
+      height: 10%;
+      background-color: #eee; // 色は適当に指定
+  }
+
+  .angle-section {
+      position: absolute;
+      top: 20%;
+      left: 0;
+      width: 20%;
+      height: 60%;
+      // background-color: blue; // 色は適当に指定
+  }
+
+  .layerFlame-section {
+      position: absolute;
+      top: 20%;
+      left: 20%;
+      width: 60%;
+      height: 60%;
+      // background-color: yellow; // 色は適当に指定
+  }
+
+  .color-picker-section {
+      position: absolute;
+      top: 20%;
+      right: 0;
+      width: 20%;
+      height: 60%;
+      z-index: 2;
+    //   background-color: green; // 色は適当に指定
+  }
+
+  .parts-section {
+      position: absolute;
+      bottom: 0;
+      width: 100%;
+      height: 20%;
+      // background-color: purple; // 色は適当に指定
+  }
+}
