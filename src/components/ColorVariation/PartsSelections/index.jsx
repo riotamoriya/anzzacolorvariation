@@ -1,13 +1,6 @@
 import React, { useState } from "react";
 
-import bodyIcon from "./icon/body.webp";
-import handleIcon from "./icon/handle.webp";
-
-const parts = 
-[
-  {"id": 0, "Object":bodyIcon,"NAME":"Body","MEMO":""},
-  {"id": 1, "Object":handleIcon,"NAME":"Handle","MEMO":""},
-];
+import { parts } from "../cores/importLayers";
 
 const PartSelections = ({ setSelectedPartsID }) => {
   const [hoveredPart, setHoveredPart] = useState(null);

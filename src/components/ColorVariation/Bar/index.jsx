@@ -1,4 +1,7 @@
-const Bar = () => {
+
+import { angles } from "../cores/importLayers";
+
+const Bar = ({selectedAngleID}) => {
   const typeStyle = {
       position: 'absolute',  // 絶対位置指定を追加
       top: '50%',           // 上から50%の位置に設定
@@ -9,7 +12,9 @@ const Bar = () => {
   };
 
   return (
-      <span style={typeStyle}>ウォレット 表面</span>
+      <span style={typeStyle}>
+        {`${angles[selectedAngleID].MEMO}`}
+      </span>
   )
 }
 

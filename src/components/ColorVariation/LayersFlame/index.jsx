@@ -1,9 +1,10 @@
 import React from "react";
 
+import { layers, ReadInitializeInvisibly } from "../cores/importLayers";
+
 
 const LayersFlame = ({ selectedAngleID, selectedPartID, selectedColorID
-  ,selectedBody ,selectedHandle }) => {
-  
+  ,selectedBodyDim3, selectedHandleDim3 }) => {
   
   const imageContainerStyle = {
     display: 'flex',
@@ -23,31 +24,12 @@ const LayersFlame = ({ selectedAngleID, selectedPartID, selectedColorID
     width: "auto",
     transform: "none",
   };
-
-  const Fn = () => {
-    switch(selectedPartID) {
-      case 0:
-        break;
-      case 1:
-        break;
-      default:
-        break;
-    };
-
-  };
-
   
   return (
     <div style={imageContainerStyle}>
-
-      {console.log(`selectedAngleID:${selectedAngleID}, selectedPartID:${selectedPartID}, selectedColorID:${selectedColorID}`)}
-      {/* {console.log(layers[selectedAngleID][selectedPartID][selectedColorID])} */}
-
-      <img src={selectedBody} alt="Body" style={imageStyle} />
-      <img src={selectedHandle} alt="Handle" style={imageStyle} />
-
-      {/* <img src={selectedBody} alt="Body" style={imageStyle} />
-      <img src={selectedHandle} alt="Handle" style={imageStyle} /> */}
+      <ReadInitializeInvisibly />
+      <img src={layers[selectedBodyDim3[0]][selectedBodyDim3[1]][selectedBodyDim3[2]]} alt="Body" style={imageStyle} />
+      <img src={layers[selectedHandleDim3[0]][selectedHandleDim3[1]][selectedHandleDim3[2]]} alt="Handle" style={imageStyle} />
     </div>
   );
 };
