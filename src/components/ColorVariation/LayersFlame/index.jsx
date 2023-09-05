@@ -3,8 +3,7 @@ import React from "react";
 import { layers, ReadInitializeInvisibly } from "../cores/importLayers";
 
 
-const LayersFlame = ({ selectedAngleID, selectedPartID, selectedColorID
-  ,selectedBodyDim3, selectedHandleDim3 }) => {
+const LayersFlame = ({ selectedBodyDim3, selectedHandleDim3 }) => {
   
   const imageContainerStyle = {
     display: 'flex',
