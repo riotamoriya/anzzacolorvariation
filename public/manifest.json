@@ -1,6 +1,8 @@
 {
   "name": "Anzza_Color_Variation_System",
   "short_name": "anzzacolorvariation",
+
+
   "icons": [
     {
       "src": "icons/android-icons/16x16.png",
@@ -68,9 +70,10 @@
       "sizes": "180x180"
     }
   ],
-  "start_url": ".",
+  "start_url": "https://d1jwbf78ekjl6o.cloudfront.net/anzzacolorvariation/index.html",
   "display": "standalone",
   "theme_color": "#000000",
   "background_color": "#ffffff"
 }
+
 
