@@ -5,6 +5,7 @@ import LayersFlame from "./LayersFlame";
 import Bar from "./Bar";
 import Angle from "./Angle";
 import PartSelections from "./PartsSelections";
+import Notice from "./Notice";
 
 import './style.scss';
 
@@ -28,9 +29,7 @@ const ColorVariation = () => {
             </div>
 
             <div className="notice-section">
-                <span className="noticeStyle">
-                    ※ 本アプリでの色と実物は、画面の種類・設定により僅かに異なる場合があります。
-                </span>
+                <Notice />
             </div>
 
             <div className="angle-section">
