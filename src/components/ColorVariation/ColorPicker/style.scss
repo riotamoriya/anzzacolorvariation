@@ -1,10 +1,8 @@
-$breakpoint-pc: 1024px;
-$breakpoint-tablet: 768px;
-$breakpoint-mobile: 480px;
+@import '../variables';
 
-
+// 全体のスタイル
 .colorPickerStyle {
-  // background-color: aqua;
+  // ここに共通のスタイルを追加
 
   height: 100%;
   width: 50%;
@@ -20,7 +18,7 @@ $breakpoint-mobile: 480px;
     flex-direction: column; // 要素を縦に配置する
     justify-content: center; // 主軸方向（ここでは縦方向）で要素を中央に配置
     align-items: flex-start; // 交差軸方向（ここでは横方向）で要素を左寄せに設定
-    margin-bottom: 0.3rem;
+    margin-bottom: 20%;
   
     // background-color: yellow;
 
@@ -29,35 +27,69 @@ $breakpoint-mobile: 480px;
       background-color: transparent; /* 既定の背景色を透明にして、React内でのインラインスタイルで色を上書きできるようにします */
       vertical-align: middle; /* 他の要素との位置関係を中央に整える */
       content: ""; /* 追加のコンテンツは不要 */
-
+      
       /* アスペクト比を1:1に保持するためのトリック */
-      width:50%; /* この％は好みに応じて変更できます */
-      padding-top: 50%; /* widthと同じ値にします */
-
-        // スマホのスタイル
-        @media (max-width: $breakpoint-mobile) {
-          width:100%; /* この％は好みに応じて変更できます */
-          padding-top: 100%; /* widthと同じ値にします */
-        }
+      width:65%; /* この％は好みに応じて変更できます */
+      padding-top: 65%; /* widthと同じ値にします */
     }
-
-    .nameStyle {
-      align-self: flex-start; // ボタン内での自分自身の配置を左寄せに設定
-      color: black;
-      white-space: nowrap;
-
-      font-size: 0.7rem;
-        // スマホのスタイル
-      @media (max-width: $breakpoint-mobile) {
-        font-size: 0.6rem;
-      }
-    };
-
   };
-
-
-  
 }
 
+// スマホのスタイル
+@media (max-width: $breakpoint-mobile) {
+  .colorPickerStyle {
+      // スマホ共通のスタイル
+    // background-color: purple;
+    height: 100%;
+    width: 100%;
+    .buttonStyle  {
+      .colorBoxStyle {
+        width:50%; /* この％は好みに応じて変更できます */
+        padding-top: 50%; /* widthと同じ値にします */
+      }
+    }
 
+  }
+
+  // スマホ縦向き
+  @media (orientation: portrait) {
+      .colorPickerStyle {
+          // スマホ縦向きのスタイル
+      }
+  }
+
+  // スマホ横向き
+  @media (orientation: landscape) {
+      .colorPickerStyle {
+          // スマホ横向きのスタイル
+      }
+  }
+}
+
+@media (max-width: $breakpoint-pc) and (min-width: $breakpoint-tablet) {
+  .colorPickerStyle {
+      // PCのスタイル
+  }
+}
+
+// タブレットのスタイル
+@media (max-width: $breakpoint-tablet) and (min-width: $breakpoint-mobile) {
+  .colorPickerStyle {
+      // タブレット共通のスタイル
+  }
+
+  // タブレット縦向き
+  @media (orientation: portrait) {
+      .colorPickerStyle {
+          // タブレット縦向きのスタイル
+      }
+  }
+
+  // タブレット横向き
+  @media (orientation: landscape) {
+      .colorPickerStyle {
+          // タブレット横向きのスタイル
+      }
+  }
+}
 

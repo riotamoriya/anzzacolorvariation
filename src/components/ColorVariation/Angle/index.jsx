@@ -31,7 +31,7 @@ const Angle = ({setSelectedAngleID
   })
 
   return (
-      <div className='containerStyle'>
+      <body className='containerStyle'>
         {angles.map((angle, index) => (
           <button
             key={angle.id}  // keyを追加することでリアクトのパフォーマンスを最適化
@@ -48,7 +48,7 @@ const Angle = ({setSelectedAngleID
           </button>
         ))}
 
-      </div>
+      </body>
   );
 }
 

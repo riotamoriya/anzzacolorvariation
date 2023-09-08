@@ -1,4 +1,8 @@
+@import '../variables';
+
+// 全体のスタイル
 .containerStyle {
+  // ここに共通のスタイルを追加
   display: flex;
   flex-direction: column;
   align-items: center;
@@ -22,11 +26,57 @@
   };
 
   img {
-    // height: 4rem;
     width: 40%;
     height: auto;
   }
-};
+}
 
+
+// スマホのスタイル
+@media (max-width: $breakpoint-mobile) {
+  .containerStyle {
+      // スマホ共通のスタイル
+      img {
+        width: 80%;
+        height: auto;
+      }
+  }
+
+  // スマホ縦向き
+  @media (orientation: portrait) {
+      .containerStyle {
+          // スマホ縦向きのスタイル
+      }
+  }
+
+  // スマホ横向き
+  @media (orientation: landscape) {
+      .containerStyle {
+          // スマホ横向きのスタイル
+
+      }
+  }
+}
+
+// タブレットのスタイル
+@media (max-width: $breakpoint-tablet) and (min-width: $breakpoint-mobile) {
+  .containerStyle {
+      // タブレット共通のスタイル
+  }
+
+  // タブレット縦向き
+  @media (orientation: portrait) {
+      .containerStyle {
+          // タブレット縦向きのスタイル
+      }
+  }
+
+  // タブレット横向き
+  @media (orientation: landscape) {
+      .containerStyle {
+          // タブレット横向きのスタイル
+      }
+  }
+}
 
 

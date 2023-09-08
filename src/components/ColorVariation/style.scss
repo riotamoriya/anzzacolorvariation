@@ -1,3 +1,62 @@
+@import './variables';
+
+// 全体のスタイル
+body {
+  // ここに共通のスタイルを追加
+}
+
+@media (max-width: $breakpoint-pc) and (min-width: $breakpoint-tablet) {
+  body {
+      // PCのスタイル
+  }
+}
+
+// タブレットのスタイル
+@media (max-width: $breakpoint-tablet) and (min-width: $breakpoint-mobile) {
+  body {
+      // タブレット共通のスタイル
+  }
+
+  // タブレット縦向き
+  @media (orientation: portrait) {
+      body {
+          // タブレット縦向きのスタイル
+      }
+  }
+
+  // タブレット横向き
+  @media (orientation: landscape) {
+      body {
+          // タブレット横向きのスタイル
+      }
+  }
+}
+
+// スマホのスタイル
+@media (max-width: $breakpoint-mobile) {
+  body {
+      // スマホ共通のスタイル
+  }
+
+  // スマホ縦向き
+  @media (orientation: portrait) {
+      body {
+          // スマホ縦向きのスタイル
+      }
+  }
+
+  // スマホ横向き
+  @media (orientation: landscape) {
+      body {
+          // スマホ横向きのスタイル
+      }
+  }
+}
+
+
+
+
+
 .color-variation-container {
   position: relative;
   width: 100vw;
@@ -77,3 +136,5 @@
       align-items: center;
   }
 }
+
+

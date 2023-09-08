@@ -1,0 +1,54 @@
+// 全体のスタイル
+.colorPickerStyle {
+  // ここに共通のスタイルを追加
+  background-color: red;
+}
+
+@media (max-width: $breakpoint-pc) and (min-width: $breakpoint-tablet) {
+  .colorPickerStyle {
+      // PCのスタイル
+  }
+}
+
+// タブレットのスタイル
+@media (max-width: $breakpoint-tablet) and (min-width: $breakpoint-mobile) {
+  .colorPickerStyle {
+      // タブレット共通のスタイル
+  }
+
+  // タブレット縦向き
+  @media (orientation: portrait) {
+      .colorPickerStyle {
+          // タブレット縦向きのスタイル
+      }
+  }
+
+  // タブレット横向き
+  @media (orientation: landscape) {
+      .colorPickerStyle {
+          // タブレット横向きのスタイル
+      }
+  }
+}
+
+// スマホのスタイル
+@media (max-width: $breakpoint-mobile) {
+  .colorPickerStyle {
+      // スマホ共通のスタイル
+  }
+
+  // スマホ縦向き
+  @media (orientation: portrait) {
+      .colorPickerStyle {
+          // スマホ縦向きのスタイル
+      }
+  }
+
+  // スマホ横向き
+  @media (orientation: landscape) {
+      .colorPickerStyle {
+          // スマホ横向きのスタイル
+      }
+  }
+}
+
