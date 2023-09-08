@@ -107,7 +107,7 @@ export const handleColors =
 
 export const angles = 
 [
-  {"id": 0, "NAME":"Frontal","MEMO":"Frontal"},
-  {"id": 1, "NAME":"Oblique","MEMO":"Oblique"},
+  {"id": 0, "NAME":"Frontal","MEMO":"正面"},
+  {"id": 1, "NAME":"Oblique","MEMO":"斜視"},
 ];
 

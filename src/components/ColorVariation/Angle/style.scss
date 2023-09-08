@@ -2,24 +2,29 @@
   display: flex;
   flex-direction: column;
   align-items: center;
-  // justify-content: center;
+  justify-content: center;
   height: 100%; // 親要素の高さを埋める
+  width: 100%;
+
+  // background-color: aqua;
+
 
   .buttonStyle {
     display: flex;    // 画像とテキストを垂直に中央揃え
     flex-direction: column;
     align-items: center;
     justify-content: center;
-  
-    font-size: 1rem;
-    color: black;
-    border-radius: 0.3rem;
-  
+
+    border-radius: 1rem;
     margin-bottom: 25%;
+
+    color: black;
   };
 
   img {
-    height: 4rem;
+    // height: 4rem;
+    width: 40%;
+    height: auto;
   }
 };
 

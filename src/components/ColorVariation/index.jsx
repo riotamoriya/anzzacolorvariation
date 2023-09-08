@@ -20,7 +20,19 @@ const ColorVariation = () => {
     return (
         
         <div className="color-variation-container">
-            <div className="bar-section"><Bar selectedAngleID={selectedAngleID}/></div>
+            <div className="bar-section">
+                <Bar 
+                    selectedAngleID={selectedAngleID} 
+                    selectedBodyDim3={selectedBodyDim3} selectedHandleDim3={selectedHandleDim3}
+                />
+            </div>
+
+            <div className="notice-section">
+                <span className="noticeStyle">
+                    ※ 本アプリでの色と実物は、画面の種類・設定により僅かに異なる場合があります。
+                </span>
+            </div>
+
             <div className="angle-section">
                 <Angle setSelectedAngleID={setSelectedAngleID}
                     selectedBodyDim3={selectedBodyDim3} setSelectedBodyDim3={setSelectedBodyDim3} 
@@ -34,7 +46,6 @@ const ColorVariation = () => {
                     selectedPartID={selectedPartID} 
                     selectedColorID={selectedColorID}
                     selectedBodyDim3={selectedBodyDim3} selectedHandleDim3={selectedHandleDim3}
-
                 />
             </div>
 

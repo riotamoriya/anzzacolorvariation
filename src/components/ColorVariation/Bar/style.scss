@@ -1,0 +1,11 @@
+.title {
+  position: absolute;  // 絶対位置指定
+  top: 50%;           // 上から50%の位置に設定
+  left: 50%;          // 左から50%の位置に設定
+  transform: translate(-50%, -50%); // 位置のオフセットを調整して完全に中央に
+
+  text-align: center;  // テキストを水平方向に中央寄せ
+  font-size: 1rem;
+  white-space: nowrap;
+}
+
