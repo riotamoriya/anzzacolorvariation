@@ -5,7 +5,14 @@
   transform: translate(-50%, -50%); // 位置のオフセットを調整して完全に中央に
 
   text-align: center;  // テキストを水平方向に中央寄せ
-  font-size: 1rem;
   white-space: nowrap;
+
+  .angle{
+    font-size: 0.9rem;
+  }
+
+  .product-id{
+    font-size: 1.2rem;
+  }
 }
 
