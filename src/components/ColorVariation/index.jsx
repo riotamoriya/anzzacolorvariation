@@ -9,7 +9,6 @@ import Notice from "./Notice";
 
 import './style.scss';
 
-
 const ColorVariation = () => {
     const [selectedAngleID, setSelectedAngleID] = useState(0); // the front
     const [selectedPartID, setSelectedPartID] = useState(0); // 
@@ -19,7 +18,6 @@ const ColorVariation = () => {
     const [selectedHandleDim3, setSelectedHandleDim3] = useState([0,1,1]);
 
     return (
-        
         <div className="color-variation-container">
             <div className="bar-section">
                 <Bar 
