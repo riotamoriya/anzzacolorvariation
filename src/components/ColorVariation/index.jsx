@@ -5,7 +5,7 @@ import LayersFlame from "./LayersFlame";
 import Bar from "./Bar";
 import Angle from "./Angle";
 import PartSelections from "./PartsSelections";
-import Notice from "./Notice";
+// import Notice from "./Notice";
 
 import './style.scss';
 
@@ -26,9 +26,9 @@ const ColorVariation = () => {
                 />
             </div>
 
-            <div className="notice-section">
+            {/* <div className="notice-section">
                 <Notice />
-            </div>
+            </div> */}
 
             <div className="angle-section">
                 <Angle setSelectedAngleID={setSelectedAngleID}
