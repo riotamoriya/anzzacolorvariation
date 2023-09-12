@@ -34,8 +34,8 @@ export const shadowIcons =
 
 export const parts = 
 [
-  {"id": 0, "Object":bodyIcon,"NAME":"Body","MEMO":""},
-  {"id": 1, "Object":handleIcon,"NAME":"Handles","MEMO":""},
+  {"id": 0, "Object":bodyIcon,"NAME":"Body","MEMO":"Body"},
+  {"id": 1, "Object":handleIcon,"NAME":"Handles","MEMO":"Handles"},
 ];
 
 export const layers = [
@@ -87,23 +87,40 @@ export const ReadInitializeInvisibly = () => {
   )
 }
 
+// export const bodyColors = 
+// [
+//   {"id": 0,"HEX":"#282828","NAME":"Black","MEMO":"Black"},
+//   {"id": 1,"HEX":"#2C302A","NAME":"Loden","MEMO":"Loden"},
+//   {"id": 2,"HEX":"#34180F","NAME":"Cioccolato","MEMO":"Cioccolato"},
+//   {"id": 3,"HEX":"#99632c","NAME":"Flake","MEMO":"Flake"},
+//   {"id": 4,"HEX":"#ad393b","NAME":"Lacca","MEMO":"Lacca"},
+//   {"id": 5,"HEX":"#1d62b5","NAME":"Freshy","MEMO":"Freshy"},
+//   {"id": 6,"HEX":"#c5c7b8","NAME":"Bianco-Candido","MEMO":"Bianco-Candido"}
+// ];
 export const bodyColors = 
 [
   {"id": 0,"HEX":"#282828","NAME":"Black","MEMO":"Black"},
-  {"id": 1,"HEX":"#2C302A","NAME":"Loden","MEMO":"Loden"},
-  {"id": 2,"HEX":"#34180F","NAME":"Cioccolato","MEMO":"Cioccolato"},
-  {"id": 3,"HEX":"#99632c","NAME":"Flake","MEMO":"Flake"},
-  {"id": 4,"HEX":"#ad393b","NAME":"Lacca","MEMO":"Lacca"},
-  {"id": 5,"HEX":"#1d62b5","NAME":"Freshy","MEMO":"Freshy"},
-  {"id": 6,"HEX":"#c5c7b8","NAME":"Bianco-Candido","MEMO":"Bianco-Candido"}
+  {"id": 1,"HEX":"#2C302A","NAME":"Dark-Green","MEMO":"Loden"},
+  {"id": 2,"HEX":"#34180F","NAME":"Brown","MEMO":"Cioccolato"},
+  {"id": 3,"HEX":"#99632c","NAME":"Camel","MEMO":"Flake"},
+  {"id": 4,"HEX":"#ad393b","NAME":"Red","MEMO":"Lacca"},
+  {"id": 5,"HEX":"#1d62b5","NAME":"Blue","MEMO":"Freshy"},
+  {"id": 6,"HEX":"#c5c7b8","NAME":"White","MEMO":"Bianco-Candido"}
 ];
 
+// export const handleColors = 
+// [
+//   {"id": 0,"HEX":"#2f2f2f","NAME":"Black","MEMO":"000"},
+//   {"id": 1,"HEX":"#5b290e","NAME":"DarkCamel","MEMO":"280"},
+//   {"id": 2,"HEX":"#c96226","NAME":"LightCamel","MEMO":"800"},
+// ];
 export const handleColors = 
 [
   {"id": 0,"HEX":"#2f2f2f","NAME":"Black","MEMO":"000"},
-  {"id": 1,"HEX":"#5b290e","NAME":"DarkCamel","MEMO":"280"},
-  {"id": 2,"HEX":"#c96226","NAME":"LightCamel","MEMO":"800"},
+  {"id": 1,"HEX":"#5b290e","NAME":"Brown","MEMO":"280"},
+  {"id": 2,"HEX":"#c96226","NAME":"Camel","MEMO":"800"},
 ];
+
 
 export const angles = 
 [
