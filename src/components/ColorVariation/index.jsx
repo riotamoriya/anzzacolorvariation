@@ -1,5 +1,8 @@
 import React, { useState } from "react";
 
+
+import { ID_OF_BODY, ID_OF_HANDLE} from "./cores/constants";
+
 import ColorPicker from "./ColorPicker";
 import LayersFlame from "./LayersFlame";
 import Bar from "./Bar";
@@ -14,9 +17,11 @@ const ColorVariation = () => {
     const [selectedPartID, setSelectedPartID] = useState(0); // 
     const [selectedColorID, setSelectedColorID] = useState(0); // 
 
+
+
     // [angle, part, color]
-    const [selectedBodyDim3, setSelectedBodyDim3] = useState([0,0,6]);
-    const [selectedHandleDim3, setSelectedHandleDim3] = useState([0,1,1]);
+    const [selectedBodyDim3, setSelectedBodyDim3] = useState([0,ID_OF_BODY,6]);
+    const [selectedHandleDim3, setSelectedHandleDim3] = useState([0,ID_OF_HANDLE,2]);
 
     return (
         <div className="color-variation-container">
