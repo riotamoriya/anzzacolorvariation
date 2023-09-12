@@ -101,9 +101,9 @@ export const bodyColors =
 [
   {"id": 0,"HEX":"#282828","NAME":"Black","MEMO":"Black"},
   {"id": 1,"HEX":"#2c352a","NAME":"DarkGreen","MEMO":"Loden"},
-  {"id": 2,"HEX":"#c98b2c","NAME":"Brown","MEMO":"Cioccolato"},
-  {"id": 3,"HEX":"#99632c","NAME":"Camel","MEMO":"Flake"},
-  {"id": 4,"HEX":"#cd1e1d","NAME":"Red","MEMO":"Lacca"},
+  {"id": 2,"HEX":"#543a13","NAME":"Brown","MEMO":"Cioccolato"},
+  {"id": 3,"HEX":"#a97137","NAME":"Camel","MEMO":"Flake"},
+  {"id": 4,"HEX":"#dc3c3c","NAME":"Red","MEMO":"Lacca"},
   {"id": 5,"HEX":"#1d62b5","NAME":"Blue","MEMO":"Freshy"},
   {"id": 6,"HEX":"#c5c7b8","NAME":"White","MEMO":"Bianco-Candido"}
 ];
