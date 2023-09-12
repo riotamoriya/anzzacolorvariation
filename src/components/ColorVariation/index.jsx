@@ -14,6 +14,7 @@ const ColorVariation = () => {
     const [selectedPartID, setSelectedPartID] = useState(0); // 
     const [selectedColorID, setSelectedColorID] = useState(0); // 
 
+    // [angle, part, color]
     const [selectedBodyDim3, setSelectedBodyDim3] = useState([0,0,6]);
     const [selectedHandleDim3, setSelectedHandleDim3] = useState([0,1,1]);
 

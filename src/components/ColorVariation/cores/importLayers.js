@@ -100,7 +100,7 @@ export const ReadInitializeInvisibly = () => {
 export const bodyColors = 
 [
   {"id": 0,"HEX":"#282828","NAME":"Black","MEMO":"Black"},
-  {"id": 1,"HEX":"#2C302A","NAME":"Dark-Green","MEMO":"Loden"},
+  {"id": 1,"HEX":"#2C302A","NAME":"DarkGreen","MEMO":"Loden"},
   {"id": 2,"HEX":"#34180F","NAME":"Brown","MEMO":"Cioccolato"},
   {"id": 3,"HEX":"#99632c","NAME":"Camel","MEMO":"Flake"},
   {"id": 4,"HEX":"#ad393b","NAME":"Red","MEMO":"Lacca"},
