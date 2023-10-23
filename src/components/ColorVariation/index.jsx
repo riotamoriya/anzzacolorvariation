@@ -32,7 +32,7 @@ const ColorVariation = () => {
                     selectedBodyDim3={selectedBodyDim3} selectedHandleDim3={selectedHandleDim3}
                 />
             </div>
-            
+
             {/* The left of UI: The controller of Angles selection */}
             <div className="angle-section">
                 <AngleController setSelectedAngleID={setSelectedAngleID}

@@ -1,4 +1,4 @@
-import React from "react";
+import React, { useCallback }from "react";
 import { bodyColors, handleColors } from '../../cores/importLayers';
 import Button1 from "../../components/Button1";
 
@@ -7,7 +7,8 @@ import './style.scss';
 const ColorController = ({selectedAngleID, selectedPartID, setSelectedColorID
   ,setSelectedBodyDim3, setSelectedHandleDim3}) => {
 
-  const pushBottun = (colorId) => {
+  // The function of Onclick: change color of the part.
+  const pushBottun = useCallback((colorId) => {
     switch(selectedPartID) {
       case 0:
         setSelectedBodyDim3([selectedAngleID,selectedPartID,colorId]);
@@ -20,9 +21,11 @@ const ColorController = ({selectedAngleID, selectedPartID, setSelectedColorID
 
     setSelectedColorID(colorId);
     // console.log(`RunningPart:= [${selectedAngleID}.${selectedPartID}.${colorId}] = [Angle,Part,Color]`);
-  };
-  const colorBox = color => ({ backgroundColor: color })
-  
+  },
+    [selectedPartID, setSelectedBodyDim3, setSelectedColorID, setSelectedHandleDim3, selectedAngleID]
+  );
+
+  const colorBox = useCallback(color => ({ backgroundColor: color }),[]);
 
   // The logic that select the colors set which involve in Part. (Each Parts has unique colors set.)
   let selectedPartColorsSet;

@@ -34,8 +34,8 @@ export const shadowIcons =
 
 export const parts = 
 [
-  {"id": 0, "Object":bodyIcon,"NAME":"Body","MEMO":"Body"},
-  {"id": 1, "Object":handleIcon,"NAME":"Handles","MEMO":"Handles"},
+  {"id": 0, "Object":bodyIcon,"NAME":"ボディ","MEMO":"Body"},
+  {"id": 1, "Object":handleIcon,"NAME":"ハンドル","MEMO":"Handle"},
 ];
 
 export const layers = [
