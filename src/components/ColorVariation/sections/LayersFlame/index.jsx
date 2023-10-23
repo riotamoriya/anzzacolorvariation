@@ -1,3 +1,4 @@
+import React from "react";
 import { layers, ReadInitializeInvisibly } from "../../cores/importLayers";
 
 const LayersFlame = ({ selectedBodyDim3, selectedHandleDim3 }) => {
