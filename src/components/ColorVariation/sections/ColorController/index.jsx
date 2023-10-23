@@ -1,26 +1,13 @@
-import React, { useState } from "react";
-
+import React from "react";
 import { bodyColors, handleColors } from '../../cores/importLayers';
-import './style.scss';
+import Button1 from "../../components/Button1";
 
+import './style.scss';
 
 const ColorController = ({selectedAngleID, selectedPartID, setSelectedColorID
   ,setSelectedBodyDim3, setSelectedHandleDim3}) => {
 
-  const [hoveredPart, setHoveredPart] = useState(null);
-
-  const hoverStyle = part => ({
-    background: hoveredPart === part ? '#eee' : 'none',
-    border: 'none',
-    outline: 'none',
-    cursor: 'pointer',
-  })
-  
-  const colorBox = color => ({ backgroundColor: color })
-
   const pushBottun = (colorId) => {
-    setSelectedColorID(colorId);
-
     switch(selectedPartID) {
       case 0:
         setSelectedBodyDim3([selectedAngleID,selectedPartID,colorId]);
@@ -28,38 +15,35 @@ const ColorController = ({selectedAngleID, selectedPartID, setSelectedColorID
       case 1:
         setSelectedHandleDim3([selectedAngleID,selectedPartID,colorId]);
         break;
-      default:
-        break;
+      default: break;
     };
 
-    console.log(`RunningPart:= [${selectedAngleID}.${selectedPartID}.${colorId}] = [Angle,Part,Color]`);
+    setSelectedColorID(colorId);
+    // console.log(`RunningPart:= [${selectedAngleID}.${selectedPartID}.${colorId}] = [Angle,Part,Color]`);
   };
+  const colorBox = color => ({ backgroundColor: color })
+  
 
-
-  let selectedPartColors;
+  // The logic that select the colors set which involve in Part. (Each Parts has unique colors set.)
+  let selectedPartColorsSet;
   switch(selectedPartID) {
     case 0:
-      selectedPartColors = bodyColors;
+      selectedPartColorsSet = bodyColors;
       break;
     case 1:
-      selectedPartColors = handleColors;
+      selectedPartColorsSet = handleColors;
       break;
-    default:
-      break;
+    default: break;
   };
   
   return (
     <div className="colorPickerStyle">
       {
-        selectedPartColors.map((color)=>{
+        selectedPartColorsSet.map((color)=>{
           return (
-            <button key={color.NAME} style={hoverStyle(color.id)} className='buttonStyle' 
-              onClick={() => pushBottun(color.id)}
-              onMouseEnter={() => setHoveredPart(color.id)}
-              onMouseLeave={() => setHoveredPart(null)} // カーソルがボタンから離れたときのハンドラ
-              >
-              <span className='colorBoxStyle' style={colorBox(color.HEX)}></span>
-            </button>
+            <Button1 className='buttonStyle' onClick={() => pushBottun(color.id)}>
+              <span className='colorBoxStyle' style={colorBox(color.HEX)} />
+            </Button1>
           )
         })
       }

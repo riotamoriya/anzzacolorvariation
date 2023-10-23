@@ -10,11 +10,8 @@
   height: 100%; // 親要素の高さを埋める
   width: 100%;
 
-  // background-color: aqua;
-
-
   .buttonStyle {
-    display: flex;    // 画像とテキストを垂直に中央揃え
+    display: flex; // 画像とテキストを垂直に中央揃え
     flex-direction: column;
     align-items: center;
     justify-content: center;
@@ -23,7 +20,9 @@
     margin-bottom: 25%;
 
     color: black;
-  };
+  }
+
+  ;
 
   img {
     width: 40%;
@@ -35,48 +34,11 @@
 // スマホのスタイル
 @media (max-width: $breakpoint-mobile) {
   .containerStyle {
-      // スマホ共通のスタイル
-      img {
-        width: 80%;
-        height: auto;
-      }
-  }
 
-  // スマホ縦向き
-  @media (orientation: portrait) {
-      .containerStyle {
-          // スマホ縦向きのスタイル
-      }
-  }
-
-  // スマホ横向き
-  @media (orientation: landscape) {
-      .containerStyle {
-          // スマホ横向きのスタイル
-
-      }
+    // スマホ共通のスタイル
+    img {
+      width: 80%;
+      height: auto;
+    }
   }
 }
-
-// タブレットのスタイル
-@media (max-width: $breakpoint-tablet) and (min-width: $breakpoint-mobile) {
-  .containerStyle {
-      // タブレット共通のスタイル
-  }
-
-  // タブレット縦向き
-  @media (orientation: portrait) {
-      .containerStyle {
-          // タブレット縦向きのスタイル
-      }
-  }
-
-  // タブレット横向き
-  @media (orientation: landscape) {
-      .containerStyle {
-          // タブレット横向きのスタイル
-      }
-  }
-}
-
-
