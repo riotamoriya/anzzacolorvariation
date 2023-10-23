@@ -1,9 +1,10 @@
 import React, { useState } from "react";
 
-import { bodyColors, handleColors } from '../cores/importLayers';
+import { bodyColors, handleColors } from '../../cores/importLayers';
 import './style.scss';
 
-const ColorPicker = ({selectedAngleID, selectedPartID, setSelectedColorID
+
+const ColorController = ({selectedAngleID, selectedPartID, setSelectedColorID
   ,setSelectedBodyDim3, setSelectedHandleDim3}) => {
 
   const [hoveredPart, setHoveredPart] = useState(null);
@@ -66,4 +67,4 @@ const ColorPicker = ({selectedAngleID, selectedPartID, setSelectedColorID
   );
 };
 
-export default ColorPicker;
+export default ColorController;

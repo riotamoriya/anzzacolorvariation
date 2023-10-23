@@ -10,6 +10,4 @@ export const ID_OF_HANDLE = 1;
 export const ID_OF_FRONTAL = 0;
 export const ID_OF_OBLIQUE = 1;
 
-
-
 export const ID_OF_COLOR = 2;

@@ -4,12 +4,11 @@ import {
     ID_OF_BODY, ID_OF_HANDLE, ID_OF_FRONTAL,
 } from "./cores/constants";
 
-
-import ColorPicker from "./ColorPicker";
-import LayersFlame from "./LayersFlame";
-import Bar from "./Bar";
-import Angle from "./Angle";
-import PartSelections from "./PartsSelections";
+import Bar from "./sections/Bar";
+import LayersFlame from "./sections/LayersFlame";
+import ColorController from "./sections/ColorController";
+import AngleController from "./sections/AngleController";
+import PartsController from "./sections/PartsController";
 
 import './style.scss';
 
@@ -36,7 +35,7 @@ const ColorVariation = () => {
             
             {/* The left of UI: The controller of Angles selection */}
             <div className="angle-section">
-                <Angle setSelectedAngleID={setSelectedAngleID}
+                <AngleController setSelectedAngleID={setSelectedAngleID}
                     selectedBodyDim3={selectedBodyDim3} setSelectedBodyDim3={setSelectedBodyDim3}
                     selectedHandleDim3={selectedHandleDim3} setSelectedHandleDim3={setSelectedHandleDim3}
                 />
@@ -54,12 +53,12 @@ const ColorVariation = () => {
 
             {/* The ceiling of UI: The controller of Parts selection */}
             <div className="parts-section">
-                <PartSelections setSelectedPartsID={setSelectedPartID} />
+                <PartsController setSelectedPartsID={setSelectedPartID} />
             </div>
 
             {/* The right of UI: The controller of Colors selection */}
             <div className="color-picker-section">
-                <ColorPicker
+                <ColorController
                     selectedAngleID={selectedAngleID} selectedPartID={selectedPartID} setSelectedColorID={setSelectedColorID}
                     setSelectedBodyDim3={setSelectedBodyDim3} setSelectedHandleDim3={setSelectedHandleDim3}
                 />

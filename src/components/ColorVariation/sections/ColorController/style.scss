@@ -1,9 +1,7 @@
-@import '../variables';
+@import '../../variables';
 
 // 全体のスタイル
 .colorPickerStyle {
-  // ここに共通のスタイルを追加
-
   height: 100%;
   width: 50%;
 
@@ -20,8 +18,6 @@
     align-items: flex-start; // 交差軸方向（ここでは横方向）で要素を左寄せに設定
     margin-bottom: 20%;
   
-    // background-color: yellow;
-
     .colorBoxStyle {
       display: inline-block;
       background-color: transparent; /* 既定の背景色を透明にして、React内でのインラインスタイルで色を上書きできるようにします */
@@ -38,8 +34,6 @@
 // スマホのスタイル
 @media (max-width: $breakpoint-mobile) {
   .colorPickerStyle {
-      // スマホ共通のスタイル
-    // background-color: purple;
     height: 100%;
     width: 100%;
     .buttonStyle  {
@@ -48,48 +42,5 @@
         padding-top: 50%; /* widthと同じ値にします */
       }
     }
-
-  }
-
-  // スマホ縦向き
-  @media (orientation: portrait) {
-      .colorPickerStyle {
-          // スマホ縦向きのスタイル
-      }
-  }
-
-  // スマホ横向き
-  @media (orientation: landscape) {
-      .colorPickerStyle {
-          // スマホ横向きのスタイル
-      }
   }
 }
-
-@media (max-width: $breakpoint-pc) and (min-width: $breakpoint-tablet) {
-  .colorPickerStyle {
-      // PCのスタイル
-  }
-}
-
-// タブレットのスタイル
-@media (max-width: $breakpoint-tablet) and (min-width: $breakpoint-mobile) {
-  .colorPickerStyle {
-      // タブレット共通のスタイル
-  }
-
-  // タブレット縦向き
-  @media (orientation: portrait) {
-      .colorPickerStyle {
-          // タブレット縦向きのスタイル
-      }
-  }
-
-  // タブレット横向き
-  @media (orientation: landscape) {
-      .colorPickerStyle {
-          // タブレット横向きのスタイル
-      }
-  }
-}
-

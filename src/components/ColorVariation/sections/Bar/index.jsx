@@ -1,6 +1,6 @@
 
-import { angles, bodyColors, handleColors } from "../cores/importLayers";
-import { ID_OF_COLOR } from "../cores/constants";
+import { angles, bodyColors, handleColors } from "../../cores/importLayers";
+import { ID_OF_COLOR } from "../../cores/constants";
 
 import './style.scss';
 

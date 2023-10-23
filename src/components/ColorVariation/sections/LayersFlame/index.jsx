@@ -1,4 +1,4 @@
-import { layers, ReadInitializeInvisibly } from "../cores/importLayers";
+import { layers, ReadInitializeInvisibly } from "../../cores/importLayers";
 import './style.scss';
 
 const LayersFlame = ({ selectedBodyDim3, selectedHandleDim3 }) => {
